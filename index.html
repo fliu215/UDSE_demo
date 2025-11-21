@@ -88,9 +88,11 @@
             In real-world scenarios, speech signals are inevitably corrupted by various types of interference, making speech enhancement (SE) a critical task for robust speech processing. 
             However, most existing SE methods only handle a limited range of distortions, such as additive noise, reverberation, or band limitation, while the study of SE under multiple simultaneous distortions remains limited. 
             This gap affects the generalization and practical usability of SE methods in real-world environments.To address this gap, this paper proposes a novel Universal Discrete-domain SE model called UDSE.
-            Unlike regression-based SE models that directly predict clean speech waveform or continuous features, UDSE redefines SE as a discrete-domain classification task, instead predicting the clean discrete tokens quantized by the residual vector quantizer (RVQ) of a pre-trained neural speech codec.
-            Specifically, UDSE first extracts global features from the degraded speech. Guided by these global features, the clean token prediction for each VQ follows the rules of RVQ, where the prediction of each VQ relies on the results of the preceding ones. 
-            Finally, the predicted clean tokens from all VQs are decoded to reconstruct the clean speech waveform. During training, the UDSE model employs a teacher-forcing strategy, and is optimized with cross-entropy loss. 
+            UDSE primarily works to enhance speech by predicting clean discrete tokens that are quantized by the residual vector quantizer (RVQ) of a pre-trained neural speech codec and are predicted in accordance with the RVQ rules.
+            Specifically, UDSE first extracts global features from the degraded speech. 
+            Guided by these global features, the clean token prediction for each VQ follows the rules of RVQ, where the prediction of each VQ relies on the results of the preceding ones. 
+            Finally, the predicted clean tokens from all VQs are decoded to reconstruct the clean speech waveform. 
+            During training, the UDSE model employs a teacher-forcing strategy, and is optimized with cross-entropy loss. 
             Experimental results confirm that the proposed UDSE model can effectively enhance speech degraded by various conventional and unconventional distortions, e.g., additive noise, reverberation, band limitation, clipping, phase distortion, and compression distortion, as well as their combinations. 
             These results demonstrate the superior universality and practicality of UDSE compared to advanced regression-based SE methods.
           </p>
@@ -126,6 +128,8 @@
       <td style="text-align: center;"><b>DEMUCS</b></th>
       <td style="text-align: center;"><b>CMGAN</b></th>
       <td style="text-align: center;"><b>MP-SENet</b></th>
+      <td style="text-align: center;"><b>UniverSE++</b></th>
+      <td style="text-align: center;"><b>Genhancer</b></th>
       <td style="text-align: center;"><b>UDSE</b></th>
       <!-- <td style="text-align: center;"><b>MS-BWE (Four Stages)</b></th> -->
     </tr>
@@ -137,6 +141,8 @@
       <td><img src="wavs/noisy/demucs/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/CM-GAN/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/MP-SENet/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/noisy/universe/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/noisy/genhancer/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/DSR/p232_006.png" width="200px" height="128px"></td>
     </tr>
 
@@ -146,6 +152,8 @@
     <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/demucs/p232_006.wav" type="audio/wav"></audio></td>
     <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/CM-GAN/p232_006.wav" type="audio/wav"></audio></td>
     <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/MP-SENet/p232_006.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/universe/p232_006.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/genhancer/p232_006.wav" type="audio/wav"></audio></td>
     <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/DSR/p232_006.wav" type="audio/wav"></audio></td>
     <!-- <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="samples/BWE_flexible/8kto48k/ms-bwe.wav" type="audio/wav"></audio></td> -->
     </tr>
@@ -166,6 +174,8 @@
       <td style="text-align: center;"><b>DEMUCS</b></th>
       <td style="text-align: center;"><b>CMGAN</b></th>
       <td style="text-align: center;"><b>MP-SENet</b></th>
+      <td style="text-align: center;"><b>UniverSE++</b></th>
+      <td style="text-align: center;"><b>Genhancer</b></th>
       <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -175,6 +185,8 @@
       <td><img src="wavs/noisy/demucs/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/CM-GAN/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/MP-SENet/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/noisy/universe/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/noisy/genhancer/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/noisy/DSR/p232_009.png" width="200px" height="128px"></td>
     </tr>
   
@@ -184,6 +196,8 @@
         <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/demucs/p232_009.wav" type="audio/wav"></audio></td>
         <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/CM-GAN/p232_009.wav" type="audio/wav"></audio></td>
         <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/MP-SENet/p232_009.wav" type="audio/wav"></audio></td>
+        <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/universe/p232_009.wav" type="audio/wav"></audio></td>
+        <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/genhancer/p232_009.wav" type="audio/wav"></audio></td>
         <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/DSR/p232_009.wav" type="audio/wav"></audio></td>
       </tr>
     </table>
@@ -203,6 +217,8 @@
       <td style="text-align: center;"><b>DEMUCS</b></th>
       <td style="text-align: center;"><b>CMGAN</b></th>
       <td style="text-align: center;"><b>MP-SENet</b></th>
+      <td style="text-align: center;"><b>UniverSE++</b></th>
+      <td style="text-align: center;"><b>Genhancer</b></th>
       <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
       <tr>
@@ -212,6 +228,8 @@
         <td><img src="wavs/noisy/demucs/p232_032.png" width="200px" height="128px"></td>
         <td><img src="wavs/noisy/CM-GAN/p232_032.png" width="200px" height="128px"></td>
         <td><img src="wavs/noisy/MP-SENet/p232_032.png" width="200px" height="128px"></td>
+        <td><img src="wavs/noisy/universe/p232_032.png" width="200px" height="128px"></td>
+        <td><img src="wavs/noisy/genhancer/p232_032.png" width="200px" height="128px"></td>
         <td><img src="wavs/noisy/DSR/p232_032.png" width="200px" height="128px"></td>
       </tr>
     
@@ -221,6 +239,8 @@
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/demucs/p232_032.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/CM-GAN/p232_032.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/MP-SENet/p232_032.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/universe/p232_032.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/genhancer/p232_032.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/DSR/p232_032.wav" type="audio/wav"></audio></td>
         </tr>
       </table>
@@ -240,6 +260,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
         </tr>
         <tr>
@@ -249,6 +271,8 @@
           <td><img src="wavs/noisy/demucs/p257_028.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/CM-GAN/p257_028.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/MP-SENet/p257_028.png" width="200px" height="128px"></td>
+          <td><img src="wavs/noisy/universe/p257_028.png" width="200px" height="128px"></td>
+          <td><img src="wavs/noisy/genhancer/p257_028.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/DSR/p257_028.png" width="200px" height="128px"></td>
         </tr>
     
@@ -258,6 +282,8 @@
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/demucs/p257_028.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/CM-GAN/p257_028.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/MP-SENet/p257_028.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/universe/p257_028.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/genhancer/p257_028.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/DSR/p257_028.wav" type="audio/wav"></audio></td>
         </tr>
   </table>
@@ -277,6 +303,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
         </tr>
         <tr>
@@ -286,6 +314,8 @@
           <td><img src="wavs/noisy/demucs/p257_042.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/CM-GAN/p257_042.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/MP-SENet/p257_042.png" width="200px" height="128px"></td>
+          <td><img src="wavs/noisy/universe/p257_042.png" width="200px" height="128px"></td>
+          <td><img src="wavs/noisy/genhancer/p257_042.png" width="200px" height="128px"></td>
           <td><img src="wavs/noisy/DSR/p257_042.png" width="200px" height="128px"></td>
         </tr>
     
@@ -295,6 +325,8 @@
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/demucs/p257_042.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/CM-GAN/p257_042.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/MP-SENet/p257_042.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/universe/p257_042.wav" type="audio/wav"></audio></td>
+          <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/genhancer/p257_042.wav" type="audio/wav"></audio></td>
           <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/noisy/DSR/p257_042.wav" type="audio/wav"></audio></td>
         </tr>
   </table>
@@ -326,6 +358,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -335,6 +369,8 @@
       <td><img src="wavs/reverb/demucs/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/CM-GAN/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/MP-SENet/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/universe/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/genhancer/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/DSR/p232_002.png" width="200px" height="128px"></td>
     </tr>
 
@@ -344,6 +380,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/demucs/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/CM-GAN/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/MP-SENet/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/universe/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/genhancer/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/DSR/p232_002.wav" type="audio/wav"></audio></td>
     </tr>
 
@@ -365,6 +403,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -374,6 +414,8 @@
       <td><img src="wavs/reverb/demucs/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/CM-GAN/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/MP-SENet/p232_021.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/universe/p232_021.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/genhancer/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/DSR/p232_021.png" width="200px" height="128px"></td>
     </tr>
 
@@ -383,6 +425,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/demucs/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/CM-GAN/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/MP-SENet/p232_021.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/universe/p232_021.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/genhancer/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/DSR/p232_021.wav" type="audio/wav"></audio></td>
     </tr>
 
@@ -404,6 +448,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -413,6 +459,8 @@
       <td><img src="wavs/reverb/demucs/p232_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/CM-GAN/p232_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/MP-SENet/p232_035.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/universe/p232_035.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/genhancer/p232_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/DSR/p232_035.png" width="200px" height="128px"></td>
     </tr>
 
@@ -422,6 +470,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/demucs/p232_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/CM-GAN/p232_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/MP-SENet/p232_035.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/universe/p232_035.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/genhancer/p232_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/DSR/p232_035.wav" type="audio/wav"></audio></td>
     </tr>
 
@@ -444,6 +494,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -453,6 +505,8 @@
       <td><img src="wavs/reverb/demucs/p257_063.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/CM-GAN/p257_063.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/MP-SENet/p257_063.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/universe/p257_063.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/genhancer/p257_063.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/DSR/p257_063.png" width="200px" height="128px"></td>
     </tr>
 
@@ -462,6 +516,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/demucs/p257_063.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/CM-GAN/p257_063.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/MP-SENet/p257_063.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/universe/p257_063.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/genhancer/p257_063.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/DSR/p257_063.wav" type="audio/wav"></audio></td>
     </tr>
 
@@ -484,6 +540,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -493,6 +551,8 @@
       <td><img src="wavs/reverb/demucs/p257_072.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/CM-GAN/p257_072.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/MP-SENet/p257_072.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/universe/p257_072.png" width="200px" height="128px"></td>
+      <td><img src="wavs/reverb/genhancer/p257_072.png" width="200px" height="128px"></td>
       <td><img src="wavs/reverb/DSR/p257_072.png" width="200px" height="128px"></td>
     </tr>
 
@@ -502,6 +562,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/demucs/p257_072.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/CM-GAN/p257_072.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/MP-SENet/p257_072.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/universe/p257_072.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/genhancer/p257_072.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/reverb/DSR/p257_072.wav" type="audio/wav"></audio></td>
     </tr>
 
@@ -534,6 +596,8 @@
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
           <td style="text-align: center;"><b>AP-BWE</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -544,6 +608,8 @@
       <td><img src="wavs/band/CM-GAN/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/MP-SENet/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/AP-BWE/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/universe/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/genhancer/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/DSR/p232_002.png" width="200px" height="128px"></td>
     </tr>
 
@@ -554,6 +620,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/CM-GAN/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/MP-SENet/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/AP-BWE/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/universe/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/genhancer/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/DSR/p232_002.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -574,6 +642,8 @@
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
           <td style="text-align: center;"><b>AP-BWE</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -584,6 +654,8 @@
       <td><img src="wavs/band/CM-GAN/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/MP-SENet/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/AP-BWE/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/universe/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/genhancer/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/DSR/p232_007.png" width="200px" height="128px"></td>
     </tr>
     <tr>
@@ -593,6 +665,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/CM-GAN/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/MP-SENet/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/AP-BWE/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/universe/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/genhancer/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/DSR/p232_007.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -613,6 +687,8 @@
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
           <td style="text-align: center;"><b>AP-BWE</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -623,6 +699,8 @@
       <td><img src="wavs/band/CM-GAN/p232_032.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/MP-SENet/p232_032.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/AP-BWE/p232_032.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/universe/p232_032.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/genhancer/p232_032.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/DSR/p232_032.png" width="200px" height="128px"></td>
     </tr>
     <tr>
@@ -632,6 +710,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/CM-GAN/p232_032.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/MP-SENet/p232_032.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/AP-BWE/p232_032.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/universe/p232_032.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/genhancer/p232_032.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/DSR/p232_032.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -652,6 +732,8 @@
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
           <td style="text-align: center;"><b>AP-BWE</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr> 
     <tr>
@@ -662,6 +744,8 @@
       <td><img src="wavs/band/CM-GAN/p257_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/MP-SENet/p257_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/AP-BWE/p257_035.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/universe/p257_035.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/genhancer/p257_035.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/DSR/p257_035.png" width="200px" height="128px"></td>
     </tr>    
     <tr>
@@ -671,6 +755,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/CM-GAN/p257_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/MP-SENet/p257_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/AP-BWE/p257_035.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/universe/p257_035.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/genhancer/p257_035.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/DSR/p257_035.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -691,6 +777,8 @@
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
           <td style="text-align: center;"><b>AP-BWE</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr> 
     <tr>
@@ -701,6 +789,8 @@
       <td><img src="wavs/band/CM-GAN/p257_044.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/MP-SENet/p257_044.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/AP-BWE/p257_044.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/universe/p257_044.png" width="200px" height="128px"></td>
+      <td><img src="wavs/band/genhancer/p257_044.png" width="200px" height="128px"></td>
       <td><img src="wavs/band/DSR/p257_044.png" width="200px" height="128px"></td>
     </tr>    
     <tr>
@@ -710,6 +800,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/CM-GAN/p257_044.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/MP-SENet/p257_044.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/AP-BWE/p257_044.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/universe/p257_044.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/genhancer/p257_044.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/band/DSR/p257_044.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -740,6 +832,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -749,6 +843,8 @@
       <td><img src="wavs/clip/demucs/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/CM-GAN/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/MP-SENet/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/universe/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/genhancer/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/DSR/p232_001.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -757,6 +853,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/demucs/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/CM-GAN/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/MP-SENet/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/universe/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/genhancer/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/DSR/p232_001.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -776,6 +874,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -785,6 +885,8 @@
       <td><img src="wavs/clip/demucs/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/CM-GAN/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/MP-SENet/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/universe/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/genhancer/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/DSR/p232_006.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -793,6 +895,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/demucs/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/CM-GAN/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/MP-SENet/p232_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/universe/p232_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/genhancer/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/DSR/p232_006.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -812,6 +916,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -821,6 +927,8 @@
       <td><img src="wavs/clip/demucs/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/CM-GAN/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/MP-SENet/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/universe/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/genhancer/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/DSR/p232_007.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -829,6 +937,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/demucs/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/CM-GAN/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/MP-SENet/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/universe/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/genhancer/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/DSR/p232_007.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -848,6 +958,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -857,6 +969,8 @@
       <td><img src="wavs/clip/demucs/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/CM-GAN/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/MP-SENet/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/universe/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/genhancer/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/DSR/p232_009.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -865,6 +979,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/demucs/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/CM-GAN/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/MP-SENet/p232_009.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/universe/p232_009.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/genhancer/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/DSR/p232_009.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -884,6 +1000,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -893,6 +1011,8 @@
       <td><img src="wavs/clip/demucs/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/CM-GAN/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/MP-SENet/p257_010.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/universe/p257_010.png" width="200px" height="128px"></td>
+      <td><img src="wavs/clip/genhancer/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/clip/DSR/p257_010.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -901,6 +1021,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/demucs/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/CM-GAN/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/MP-SENet/p257_010.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/universe/p257_010.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/genhancer/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/clip/DSR/p257_010.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -931,6 +1053,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -940,6 +1064,8 @@
       <td><img src="wavs/nspp/demucs/p232_005.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/CM-GAN/p232_005.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/MP-SENet/p232_005.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/universe/p232_005.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/genhancer/p232_005.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/DSR/p232_005.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -948,6 +1074,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/demucs/p232_005.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/CM-GAN/p232_005.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/MP-SENet/p232_005.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/universe/p232_005.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/genhancer/p232_005.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/DSR/p232_005.wav" type="audio/wav"></audio></td>
       </tr>
   </table>
@@ -967,6 +1095,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -976,6 +1106,8 @@
       <td><img src="wavs/nspp/demucs/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/CM-GAN/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/MP-SENet/p232_015.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/universe/p232_015.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/genhancer/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/DSR/p232_015.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -984,6 +1116,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/demucs/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/CM-GAN/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/MP-SENet/p232_015.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/universe/p232_015.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/genhancer/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/DSR/p232_015.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1003,6 +1137,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1012,6 +1148,8 @@
       <td><img src="wavs/nspp/demucs/p232_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/CM-GAN/p232_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/MP-SENet/p232_030.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/universe/p232_030.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/genhancer/p232_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/DSR/p232_030.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1020,6 +1158,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/demucs/p232_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/CM-GAN/p232_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/MP-SENet/p232_030.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/universe/p232_030.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/genhancer/p232_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/DSR/p232_030.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1039,6 +1179,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -1048,6 +1190,8 @@
       <td><img src="wavs/nspp/demucs/p257_040.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/CM-GAN/p257_040.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/MP-SENet/p257_040.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/universe/p257_040.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/genhancer/p257_040.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/DSR/p257_040.png" width="200px" height="128px"></td>
     </tr>    
     <tr>
@@ -1056,6 +1200,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/demucs/p257_040.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/CM-GAN/p257_040.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/MP-SENet/p257_040.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/universe/p257_040.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/genhancer/p257_040.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/DSR/p257_040.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1075,6 +1221,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -1084,6 +1232,8 @@
       <td><img src="wavs/nspp/demucs/p257_070.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/CM-GAN/p257_070.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/MP-SENet/p257_070.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/universe/p257_070.png" width="200px" height="128px"></td>
+      <td><img src="wavs/nspp/genhancer/p257_070.png" width="200px" height="128px"></td>
       <td><img src="wavs/nspp/DSR/p257_070.png" width="200px" height="128px"></td>
     </tr>    
     <tr>
@@ -1092,6 +1242,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/demucs/p257_070.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/CM-GAN/p257_070.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/MP-SENet/p257_070.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/universe/p257_070.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/genhancer/p257_070.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/nspp/DSR/p257_070.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1123,6 +1275,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1132,6 +1286,8 @@
       <td><img src="wavs/codec/demucs/p232_012.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/CM-GAN/p232_012.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/MP-SENet/p232_012.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/universe/p232_012.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/genhancer/p232_012.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/DSR/p232_012.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1140,6 +1296,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/demucs/p232_012.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/CM-GAN/p232_012.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/MP-SENet/p232_012.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/universe/p232_012.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/genhancer/p232_012.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/DSR/p232_012.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1159,6 +1317,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1168,6 +1328,8 @@
       <td><img src="wavs/codec/demucs/p232_014.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/CM-GAN/p232_014.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/MP-SENet/p232_014.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/universe/p232_014.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/genhancer/p232_014.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/DSR/p232_014.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1176,6 +1338,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/demucs/p232_014.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/CM-GAN/p232_014.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/MP-SENet/p232_014.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/universe/p232_014.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/genhancer/p232_014.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/DSR/p232_014.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1195,6 +1359,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1204,6 +1370,8 @@
       <td><img src="wavs/codec/demucs/p232_057.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/CM-GAN/p232_057.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/MP-SENet/p232_057.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/universe/p232_057.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/genhancer/p232_057.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/DSR/p232_057.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1212,6 +1380,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/demucs/p232_057.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/CM-GAN/p232_057.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/MP-SENet/p232_057.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/universe/p232_057.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/genhancer/p232_057.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/DSR/p232_057.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1231,6 +1401,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>     
     <tr>
@@ -1240,6 +1412,8 @@
       <td><img src="wavs/codec/demucs/p257_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/CM-GAN/p257_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/MP-SENet/p257_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/universe/p257_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/genhancer/p257_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/DSR/p257_006.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1248,6 +1422,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/demucs/p257_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/CM-GAN/p257_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/MP-SENet/p257_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/universe/p257_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/genhancer/p257_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/DSR/p257_006.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1267,6 +1443,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>  
     <tr>
@@ -1276,6 +1454,8 @@
       <td><img src="wavs/codec/demucs/p257_022.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/CM-GAN/p257_022.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/MP-SENet/p257_022.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/universe/p257_022.png" width="200px" height="128px"></td>
+      <td><img src="wavs/codec/genhancer/p257_022.png" width="200px" height="128px"></td>
       <td><img src="wavs/codec/DSR/p257_022.png" width="200px" height="128px"></td>
     </tr>    
     <tr>
@@ -1284,6 +1464,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/demucs/p257_022.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/CM-GAN/p257_022.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/MP-SENet/p257_022.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/universe/p257_022.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/genhancer/p257_022.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/codec/DSR/p257_022.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1314,6 +1496,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1323,6 +1507,8 @@
       <td><img src="wavs/rne/demucs/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/CM-GAN/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/MP-SENet/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/universe/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/genhancer/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/DSR/p232_001.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1331,6 +1517,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/demucs/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/CM-GAN/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/MP-SENet/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/universe/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/genhancer/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/DSR/p232_001.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1350,6 +1538,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1359,6 +1549,8 @@
       <td><img src="wavs/rne/demucs/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/CM-GAN/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/MP-SENet/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/universe/p232_002.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/genhancer/p232_002.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/DSR/p232_002.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1367,6 +1559,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/demucs/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/CM-GAN/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/MP-SENet/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/universe/p232_002.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/genhancer/p232_002.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/DSR/p232_002.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1386,6 +1580,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1395,6 +1591,8 @@
       <td><img src="wavs/rne/demucs/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/CM-GAN/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/MP-SENet/p232_015.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/universe/p232_015.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/genhancer/p232_015.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/DSR/p232_015.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1403,6 +1601,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/demucs/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/CM-GAN/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/MP-SENet/p232_015.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/universe/p232_015.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/genhancer/p232_015.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/DSR/p232_015.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1422,6 +1622,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr> 
     <tr>
@@ -1431,6 +1633,8 @@
       <td><img src="wavs/rne/demucs/p257_026.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/CM-GAN/p257_026.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/MP-SENet/p257_026.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/universe/p257_026.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/genhancer/p257_026.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/DSR/p257_026.png" width="200px" height="128px"></td>
     </tr>      
     <tr>
@@ -1439,6 +1643,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/demucs/p257_026.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/CM-GAN/p257_026.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/MP-SENet/p257_026.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/universe/p257_026.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/genhancer/p257_026.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/DSR/p257_026.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1458,6 +1664,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>     
     <tr>
@@ -1467,6 +1675,8 @@
       <td><img src="wavs/rne/demucs/p257_045.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/CM-GAN/p257_045.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/MP-SENet/p257_045.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/universe/p257_045.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rne/genhancer/p257_045.png" width="200px" height="128px"></td>
       <td><img src="wavs/rne/DSR/p257_045.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1475,6 +1685,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/demucs/p257_045.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/CM-GAN/p257_045.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/MP-SENet/p257_045.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/universe/p257_045.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/genhancer/p257_045.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rne/DSR/p257_045.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1505,6 +1717,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1514,6 +1728,8 @@
       <td><img src="wavs/rnclip/demucs/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/CM-GAN/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/MP-SENet/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/universe/p232_001.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/genhancer/p232_001.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/DSR/p232_001.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1522,6 +1738,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/demucs/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/CM-GAN/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/MP-SENet/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/universe/p232_001.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/genhancer/p232_001.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/DSR/p232_001.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1541,6 +1759,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1550,6 +1770,8 @@
       <td><img src="wavs/rnclip/demucs/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/CM-GAN/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/MP-SENet/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/universe/p232_006.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/genhancer/p232_006.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/DSR/p232_006.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1558,6 +1780,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/demucs/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/CM-GAN/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/MP-SENet/p232_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/universe/p232_006.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/genhancer/p232_006.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/DSR/p232_006.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1577,6 +1801,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1586,6 +1812,8 @@
       <td><img src="wavs/rnclip/demucs/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/CM-GAN/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/MP-SENet/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/universe/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/genhancer/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/DSR/p232_007.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1594,6 +1822,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/demucs/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/CM-GAN/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/MP-SENet/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/universe/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/genhancer/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/DSR/p232_007.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1613,6 +1843,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr> 
     <tr>
@@ -1622,6 +1854,8 @@
       <td><img src="wavs/rnclip/demucs/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/CM-GAN/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/MP-SENet/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/universe/p232_009.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/genhancer/p232_009.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/DSR/p232_009.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1630,6 +1864,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/demucs/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/CM-GAN/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/MP-SENet/p232_009.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/universe/p232_009.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/genhancer/p232_009.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/DSR/p232_009.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1649,6 +1885,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>     
     <tr>
@@ -1658,6 +1896,8 @@
       <td><img src="wavs/rnclip/demucs/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/CM-GAN/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/MP-SENet/p257_010.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/universe/p257_010.png" width="200px" height="128px"></td>
+      <td><img src="wavs/rnclip/genhancer/p257_010.png" width="200px" height="128px"></td>
       <td><img src="wavs/rnclip/DSR/p257_010.png" width="200px" height="128px"></td>
     </tr>  
     <tr>
@@ -1666,6 +1906,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/demucs/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/CM-GAN/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/MP-SENet/p257_010.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/universe/p257_010.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/genhancer/p257_010.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/rnclip/DSR/p257_010.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1696,6 +1938,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1705,6 +1949,8 @@
       <td><img src="wavs/pnc/demucs/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/CM-GAN/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/MP-SENet/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/universe/p232_007.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/genhancer/p232_007.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/DSR/p232_007.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1713,6 +1959,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/demucs/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/CM-GAN/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/MP-SENet/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/universe/p232_007.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/genhancer/p232_007.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/DSR/p232_007.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1732,6 +1980,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1741,6 +1991,8 @@
       <td><img src="wavs/pnc/demucs/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/CM-GAN/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/MP-SENet/p232_021.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/universe/p232_021.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/genhancer/p232_021.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/DSR/p232_021.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1749,6 +2001,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/demucs/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/CM-GAN/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/MP-SENet/p232_021.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/universe/p232_021.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/genhancer/p232_021.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/DSR/p232_021.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1768,6 +2022,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>
     <tr>
@@ -1777,6 +2033,8 @@
       <td><img src="wavs/pnc/demucs/p232_031.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/CM-GAN/p232_031.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/MP-SENet/p232_031.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/universe/p232_031.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/genhancer/p232_031.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/DSR/p232_031.png" width="200px" height="128px"></td>
     </tr> 
     <tr>
@@ -1785,6 +2043,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/demucs/p232_031.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/CM-GAN/p232_031.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/MP-SENet/p232_031.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/universe/p232_031.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/genhancer/p232_031.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/DSR/p232_031.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1804,6 +2064,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -1813,6 +2075,8 @@
       <td><img src="wavs/pnc/demucs/p257_017.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/CM-GAN/p257_017.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/MP-SENet/p257_017.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/universe/p257_017.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/genhancer/p257_017.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/DSR/p257_017.png" width="200px" height="128px"></td>
     </tr>   
     <tr>
@@ -1821,6 +2085,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/demucs/p257_017.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/CM-GAN/p257_017.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/MP-SENet/p257_017.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/universe/p257_017.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/genhancer/p257_017.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/DSR/p257_017.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
@@ -1840,6 +2106,8 @@
           <td style="text-align: center;"><b>DEMUCS</b></th>
           <td style="text-align: center;"><b>CMGAN</b></th>
           <td style="text-align: center;"><b>MP-SENet</b></th>
+          <td style="text-align: center;"><b>UniverSE++</b></th>
+          <td style="text-align: center;"><b>Genhancer</b></th>
           <td style="text-align: center;"><b>UDSE</b></th>
     </tr>   
     <tr>
@@ -1849,6 +2117,8 @@
       <td><img src="wavs/pnc/demucs/p257_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/CM-GAN/p257_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/MP-SENet/p257_030.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/universe/p257_030.png" width="200px" height="128px"></td>
+      <td><img src="wavs/pnc/genhancer/p257_030.png" width="200px" height="128px"></td>
       <td><img src="wavs/pnc/DSR/p257_030.png" width="200px" height="128px"></td>
     </tr>   
     <tr>
@@ -1857,6 +2127,8 @@
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/demucs/p257_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/CM-GAN/p257_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/MP-SENet/p257_030.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/universe/p257_030.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/genhancer/p257_030.wav" type="audio/wav"></audio></td>
       <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="wavs/pnc/DSR/p257_030.wav" type="audio/wav"></audio></td>
     </tr>
   </table>
